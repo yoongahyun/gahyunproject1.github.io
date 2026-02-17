@@ -1,0 +1,170 @@
+@font-face {
+  font-family: "Futura";
+  src: url("FuturaCyrillicBook.woff") format("woff");
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+
+body {
+  font-family: "Futura", sans-serif;
+
+  background-image: url("Book.gif");
+  background-size: cover;        /* ⬅ fit to screen */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* ⬅ stays in place */
+  overflow-x: hidden;
+}
+
+
+/* HERO */
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.typewriter {
+  font-size: 1.5rem;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid rgb(255, 255, 255);
+  animation: typing 2s steps(18), blink 0.5s step-end infinite;
+}
+
+/* Typing */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 18ch }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+/* White fade */
+.white-page {
+  position: fixed;
+  inset: 0;
+  background: white;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/* TEXT CONTENT */
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10vh 24px;
+  z-index: 100;
+}
+
+/* PARAGRAPHS */
+.content p {
+  font-size: 1.5rem; /* SAME AS TITLE */
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.content p.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* INTERRUPTION OVERLAY */
+.choice-overlay {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 999;
+}
+
+.choice-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* CHOICE BOX */
+.choice-box {
+  text-align: center;
+  color: white;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.choice-prompt {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.6;
+}
+
+#choiceOverlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s ease;
+  z-index: 999;
+}
+
+#choiceOverlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.choice-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  font-family: "Futura", sans-serif;
+}
+
+.choice-box p {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.choices {
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+}
+
+.choice-btn {
+  background: none;    /* remove any box background */
+  border: none;        /* remove the white box border */
+  color: #fff;         /* white text on black overlay */
+  font-size: 1.5rem;     /* keep the same size */
+  cursor: pointer;
+  text-decoration: none;
+  transition: text-shadow 0.3s, color 0.3s;
+  padding: 2rem;          /* optional, remove extra space */
+  font-family: "Futura", sans-serif; /* add this */
+}
+
+/* Glow effect on hover */
+.choice-btn:hover {
+  text-shadow: 0 0 8px #fff, 0 0 16px rgb(255, 255, 255), 0 0 24px rgb(255, 255, 255);
+  color: #fff; /* keep text white */
+}
