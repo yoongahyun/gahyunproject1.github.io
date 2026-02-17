@@ -2,6 +2,11 @@
   font-family: "Futura";
   src: url("FuturaCyrillicBook.woff") format("woff");
 }
+@font-face {
+  font-family: "NHaasGrotesk";
+  src: url("NHaasGroteskDSPro-45Lt.woff") format("woff");
+}
+
 
 html, body {
   width: 100%;
@@ -36,7 +41,11 @@ body {
   overflow: hidden;
   border-right: 2px solid rgb(255, 255, 255);
   animation: typing 2s steps(18), blink 0.5s step-end infinite;
+  font-family: "NHaasGrotesk";
+  z-index: 100;
 }
+
+
 
 /* Typing */
 @keyframes typing {
@@ -165,4 +174,26 @@ body {
 .choice-btn:hover {
   text-shadow: 0 0 8px #fff, 0 0 16px rgb(255, 255, 255), 0 0 24px rgb(255, 255, 255);
   color: #fff; /* keep text white */
+}
+
+/* Make sure the home button is visible */
+.home-btn {
+  display: block;
+  font-family: "Futura", sans-serif;
+  font-size: 1.5rem;
+  color: black;             /* always black */
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  margin: 4rem auto 4rem;   /* centered with spacing above & below */
+  text-align: center;
+  transition: transform 0.3s ease, color 0.3s;
+  opacity: 1 !important;     /* force visible */
+  z-index: 10;               /* above any fading elements */
+  position: relative;        /* ensure it’s in normal flow */
+}
+
+/* Hover effect */
+.home-btn:hover {
+  transform: scale(1.1);    
+  color: black;             
 }

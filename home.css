@@ -2,8 +2,8 @@
 
 /* FONT FACE */
 @font-face {
-  font-family: "Futura";
-  src: url("FuturaCyrillicBook.woff") format("woff");
+  font-family: "NHaasGrotesk";
+  src: url("NHaasGroteskDSPro-45Lt.woff") format("woff");
 }
 
 /* RESET */
@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: "Futura", sans-serif;
+  font-family: "NHaasGrotesk", sans-serif;
   background: black;
 }
 
@@ -67,8 +67,11 @@ section {
   opacity: 0;
   font-weight: 400;
   transition: opacity 1s ease;
-  margin-top: 2rem;
+  margin: 0 auto;        /* center horizontally */
+  padding-top: 2rem;  /* spacing below for moons */
+  text-align: center;    /* center text */
 }
+
 
 .intuition.visible {
   opacity: 1;
@@ -78,7 +81,10 @@ section {
 .moons {
   display: flex;
   gap: 2rem;
-  justify-content: center;
+  justify-content: center; /* keeps them centered as a group */
+  align-items: center;
+  margin-top: 0;
+  transform: translateX(-1.1rem); /* shift slightly left */
 }
 
 .moon {
@@ -163,7 +169,7 @@ section {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  font-family: "Futura", sans-serif;
+  font-family: "NHaasGrotesk", sans-serif;
   font-size: 1rem;
   color: white;
   letter-spacing: 0.1em;
@@ -197,7 +203,7 @@ section {
 .scrolling-text-track {
   display: inline-block;
   white-space: nowrap;
-  font-family: "Futura", sans-serif;
+  font-family: "NHaasGrotesk", sans-serif;
   font-size: 1rem;
   color: white;
   animation: scrollRight 15s linear infinite; /* slower scroll */
